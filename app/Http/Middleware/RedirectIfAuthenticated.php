@@ -24,15 +24,4 @@ class RedirectIfAuthenticated
 
         return $next($request);
     }
-    // public function adminLogin(Request $request){
-    //     $this->validate($request,[
-    //     'email' => 'required|email',
-    //     'password' => 'required|password'
-    //     ]);
-    //     if (Auth::guard('admin'))->attempt(['email' => $email, 'password' => $password])
-    //     {
-    //         return redirect()->intended('pages.users');
-    //     }
-    //     return back()->withInput($request->only('email','remember'));
-    // }
 }

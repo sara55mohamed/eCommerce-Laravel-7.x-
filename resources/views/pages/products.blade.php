@@ -21,7 +21,7 @@
                 <a href="#">Add products</a>
                 <a href="#">Edit products </a>
                 <a href="#">Delete products</a>
-                <a href="#">veiw all products</a>
+                <a href="{{ route("view.products") }}">veiw all products</a>
                 <a href="#">search  </a>
                 <a href="{{ route("users")}}">users </a>
             </div>

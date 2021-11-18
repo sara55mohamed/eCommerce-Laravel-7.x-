@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','type'
+        'name', 'email', 'password', 'type'
     ];
 
     /**
@@ -39,33 +39,47 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public static function getUsers(){
+    public static function getUsers()
+    {
         return  DB::table('users')
-        ->select('*')
-        ->get()
-        ->toArray();
+            ->select('*')
+            ->get()
+            ->toArray();
     }
-    public static function addUsers($data){
+    public static function addUsers($data)
+    {
         return DB::table('users')->insert($data);
     }
-    public static function searchUser($email){
+    public static function searchUser($email)
+    {
         return  DB::table('users')
-                ->select('*')
-                ->where('email', 'like', '%'.$email.'%')
-                ->get()
-                ->first();
-                // dd($x);
+            ->select('*')
+            ->where('email', 'like', '%' . $email . '%')
+            ->get()
+            ->first();
+        // dd($x);
         // return DB::table('users')->insert($data);
     }
-    public static function deleteUser($email){
+    public static function deleteUser($email)
+    {
         return  DB::table('users')
-                ->where('email', 'like', '%'.$email.'%')
-                ->delete();
+            ->where('email', 'like', '%' . $email . '%')
+            ->delete();
     }
-    public static function editUser($data , $email){
+    public static function editUser($data, $email)
+    {
         return  DB::table('users')
-                ->where('email', 'like', '%'.$email.'%')
-                ->update($data);
+            ->where('email', 'like', '%' . $email . '%')
+            ->update($data);
+    }
+
+    public static function checkUser($email, $password)
+    {
+        return  DB::table('users')
+            ->select('*')
+            ->where('email', 'like', '%' . $email . '%', 'and', 'password', 'like', '%' . $password . '%')
+            ->get()
+            ->first();
     }
     // public static function updateData($old_email,$data){
     //     DB::table('users')

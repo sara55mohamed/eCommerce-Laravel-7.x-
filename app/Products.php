@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -19,7 +20,7 @@ class Products extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'price','category', 'logo',
+        'name', 'price', 'category', 'logo',
     ];
 
     /**
@@ -40,11 +41,11 @@ class Products extends Model
         'email_verified_at' => 'datetime',
     ];
 
-    public static function getProducts(){
+    public static function getProducts()
+    {
         return  DB::table('product')
-        ->select('*')
-        ->get()
-        ->toArray();
+            ->select('*')
+            ->get()
+            ->toArray();
     }
-
 }
