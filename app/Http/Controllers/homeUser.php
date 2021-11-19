@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+// use Hash;
 
 class homeUser extends Controller
 {
@@ -49,12 +51,11 @@ class homeUser extends Controller
     }
     public function insert(Request $request)
     {
-
         $name = $request->get('name');
         $email = $request->get('email');
-        $password = $request->get('password');
+        $password = $request->get('password'); // password
         $type = $request->get('type');
-        $data = ["name" => $name, "email" => $email, "password" => $password, "type" => $type];
+        $data = ["name" => $name, "email" => $email, "password" => Hash::make($password), "type" => $type];
         $adding = User::addUsers($data);
         $request->session()->flash('success', 'Item created successfully!');
         $request->session()->flash('alert-class', 'alert-danger');
@@ -94,7 +95,7 @@ class homeUser extends Controller
         $email = $request->get('email');
         $password = $request->get('password');
         $type = $request->get('type');
-        $data = ["name" => $name, "email" => $email, "password" => $password, "type" => $type];
+        $data = ["name" => $name, "email" => $email,"password" => Hash::make($password), "type" => $type];
         $edit = User::editUser($data, $email);
         $request->session()->flash('success', 'record edit successfully!');
         $request->session()->flash('alert-class', 'alert-danger');

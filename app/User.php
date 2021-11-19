@@ -18,7 +18,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'type'
+        // 'name', 'email', 'password', 'type'
+        'name' => 'required|string|max:255',
+        'type' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'required|string|min:8|confirmed',
     ];
 
     /**
@@ -77,7 +81,8 @@ class User extends Authenticatable
     {
         return  DB::table('users')
             ->select('*')
-            ->where('email', 'like', '%' . $email . '%', 'and', 'password', 'like', '%' . $password . '%')
+            ->where('email', 'like', '%' . $email . '%')
+            ->where('password', 'like', '%' . $password . '%')
             ->get()
             ->first();
     }
