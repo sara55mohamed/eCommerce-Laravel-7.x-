@@ -25,10 +25,15 @@ Route::group(['middleware' => 'UserAuthentication'], function () {
 
     Route::post('/admin-login', [App\Http\Controllers\authUser::class, 'adminLogin'])->name("admin.login");
 
+    Route::get('/products', [App\Http\Controllers\homeProduct::class, 'indexProducts'])->name("products");
+
+    Route::get('/view-products', [App\Http\Controllers\homeProduct::class, 'index'])->name("view.products");
+
+
     Route::get('/logout', [App\Http\Controllers\authUser::class, 'userLogout'])->name("logout");
 });
 
-Route::group(['middleware' => 'UserAuthorzation'], function () {
+Route::group(['middleware' => 'UserAuthorization'], function () {
 
     Route::get('/users', [App\Http\Controllers\homeUser::class, 'indexUsers'])->name("users");
 
@@ -51,9 +56,9 @@ Route::group(['middleware' => 'UserAuthorzation'], function () {
     Route::post('/edit', [App\Http\Controllers\homeUser::class, 'edit'])->name("edit");
     
     // PRODUCT ROUTES
-    Route::get('/products', [App\Http\Controllers\homeProduct::class, 'indexProducts'])->name("products");
+    // Route::get('/products', [App\Http\Controllers\homeProduct::class, 'indexProducts'])->name("products");
 
-    Route::get('/view-products', [App\Http\Controllers\homeProduct::class, 'index'])->name("view.products");
+    // Route::get('/view-products', [App\Http\Controllers\homeProduct::class, 'index'])->name("view.products");
 });
 
 

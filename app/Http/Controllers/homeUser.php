@@ -33,6 +33,8 @@ class homeUser extends Controller
     public function indexUsers()
     {
 
+        // dd('users');
+
         return view('pages.users');
     }
     // VIEW USERS

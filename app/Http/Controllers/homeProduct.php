@@ -11,7 +11,7 @@ class homeProduct extends Controller
     // PRODUCT PAGE
     public function indexProducts()
     {
-
+        // dd('prods');
         return view('pages.products');
     }
     // VIEW USERS

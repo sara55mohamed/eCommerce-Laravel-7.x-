@@ -87,11 +87,11 @@ class User extends Authenticatable
             ->first();
     }
 
-    public static function checkAuthourz($id)
+    public static function checkAuthouriz($id)
     {
         return  DB::table('users')
             ->select('type')
-            ->where('id', 'like', '%' . $id . '%')
+            ->where('id', '=', $id)
             ->get()
             ->first();
     }

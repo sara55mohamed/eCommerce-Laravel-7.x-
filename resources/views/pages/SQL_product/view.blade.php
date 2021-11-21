@@ -20,7 +20,7 @@
                         <td style='color:#434444; font-size: 15px;'>{{ $data->price }}</td>
                         <td style='color:#434444; font-size: 15px;'>{{ $data->category }}</td>
                         <td style='color:#40739e; font-size: 15px;'>
-                            <img src="{{ URL::asset('assets/product-images/' . $data->logo) }}" width="100"
+                            <img src="{{ URL::asset('assets/img/product-images/' . $data->logo) }}" width="100"
                                 height="100">
                         </td>
                     </tr>

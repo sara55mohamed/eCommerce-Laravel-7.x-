@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use Closure;
 
-class UserAuthorzation
+class UserAuthorization
 {
     /**
      * Handle an incoming request.
@@ -19,24 +19,15 @@ class UserAuthorzation
      */
     public function handle($request, Closure $next)
     {
-        // dd(Auth::id());
-        $check = User::checkAuthourz($request->get('type'));
-
-        if ($check -> type == 'admin') {
-            dd($check);
-
-            return redirect()->route('users');
-
-            // return $next($request);
-        } elseif ($check -> type == 'worker') {
-            // dd($check);
-
+        if(Auth::id()){
+            $check = User::checkAuthouriz(Auth::id());
+    
+            if ($check->type == 'admin') {
+                return $next($request);
+            }    
             return redirect()->route('products');
         }
-
+        // dd('sara');
         return redirect()->route('admin');
-        // dd($request);
-        // return $next($request);
-
     }
 }
