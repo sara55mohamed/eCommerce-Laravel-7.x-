@@ -49,6 +49,7 @@ Route::group(['middleware' => 'UserAuthorzation'], function () {
     Route::get('/view-edit', [App\Http\Controllers\homeUser::class, 'viewEdit'])->name("view.edit");
 
     Route::post('/edit', [App\Http\Controllers\homeUser::class, 'edit'])->name("edit");
+    
     // PRODUCT ROUTES
     Route::get('/products', [App\Http\Controllers\homeProduct::class, 'indexProducts'])->name("products");
 

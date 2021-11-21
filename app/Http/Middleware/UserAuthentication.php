@@ -19,11 +19,13 @@ class UserAuthentication
     public function handle($request, Closure $next)
     {
 
-        $credentials = Auth::attempt(['email' => $request->get('email'), 'password' => $request->get('password')]);
+        $check = Auth::attempt(['email' => $request->get('email'), 'password' => $request->get('password')]);
 
-        // dd($credentials);
+        // dd($check);
 
-        if (!is_null($credentials)) {
+        if ( $check == true) {
+            // dd($check);
+
             return redirect()->route('users');
 
             // return $next($request);

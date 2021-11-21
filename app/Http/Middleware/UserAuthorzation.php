@@ -19,19 +19,18 @@ class UserAuthorzation
      */
     public function handle($request, Closure $next)
     {
-        // Gate::define('edit-settings', function ($user) {
-        //     return $user->isAdmin
-        //                 ? Response::allow()
-        //                 : Response::deny('You must be a super administrator.');
-        // });
-        $check = Auth::attempt(['type' => $request->get('type')]);
+        // dd(Auth::id());
+        $check = User::checkAuthourz($request->get('type'));
 
-        if ($check['type'] == 'admin') {
+        if ($check -> type == 'admin') {
+            dd($check);
+
             return redirect()->route('users');
 
             // return $next($request);
-        }
-        elseif ($check['type'] == 'worker'){
+        } elseif ($check -> type == 'worker') {
+            // dd($check);
+
             return redirect()->route('products');
         }
 

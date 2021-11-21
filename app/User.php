@@ -86,6 +86,15 @@ class User extends Authenticatable
             ->get()
             ->first();
     }
+
+    public static function checkAuthourz($id)
+    {
+        return  DB::table('users')
+            ->select('type')
+            ->where('id', 'like', '%' . $id . '%')
+            ->get()
+            ->first();
+    }
     // public static function updateData($old_email,$data){
     //     DB::table('users')
     //       ->where('email',$old_email)
