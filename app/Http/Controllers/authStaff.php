@@ -7,7 +7,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class authUser extends Controller
+class authStaff extends Controller
 {
     // ADMIN PAGE
     public function indexAdmin()
@@ -18,11 +18,11 @@ class authUser extends Controller
         return redirect()->route('products');
 
     }
-    public function adminLogin(Request $request)
+    public function staffLogin(Request $request)
     {
         return redirect()->route('products');
     }
-    public function userLogout()
+    public function staffLogout()
     {
         Auth::logout();
         return redirect()->route('admin');

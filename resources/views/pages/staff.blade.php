@@ -1,7 +1,7 @@
     {{-- //parent --}}
     {{-- @extends('layout.master')  --}}
     {{-- // child --}}
-        @section('title','users ')
+        @section('title','staff ')
 
         @section('content')
             {{-- @foreach()
@@ -17,14 +17,22 @@
     <link rel="icon" href="assets/img/favicon.png" sizes="192x192" />    
 
     <body>
+        @if (session('success'))
+        <div class="error">{{ session('success') }}<div>
+            @else
+                <div class="error">{{ session('error') }}<div>
+        @endif
+        
         <!-- Header -->
                 <div class="content">
-                <a href="{{ route("view.add") }}">Add users</a>
-                <a href="{{ route("view.delete") }}">Delete users</a>
-                <a href="{{ route("view.edit") }}">Edit users</a>
-                <a href="{{ route("view.users") }}">veiw all users</a>
+                <a href="{{ route("view.add") }}">Add staff</a>
+                <a href="{{ route("view.delete") }}">Delete staff</a>
+                <a href="{{ route("view.edit") }}">Edit staff</a>
+                <a href="{{ route("view.staff") }}">veiw all staff</a>
                 <a href="{{ route("view.search") }}">search  </a>
                 <a href="{{ route("products") }}">product </a>
+                <a href="{{ route("logout") }}">logout </a>
+
             </div>
         
 

@@ -14,7 +14,7 @@
                     <td style='color:#03a9f4; font-size:25px;'>Type</td>
                 </tr>
 
-                @foreach ($viewUsers as $data)
+                @foreach ($viewStaff as $data)
                     <tr role='row'>
                         <td style='color:#40739e; font-size: 15px;'>{{ $data->name }}</td>
                         <td style='color:#434444; font-size: 15px;'>{{ $data->password }}</td>

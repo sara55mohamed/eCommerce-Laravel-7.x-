@@ -17,7 +17,7 @@
             <label>new type:</label><br />
             <input type="text" name="type" value="">
             <input type="submit" value="Edite"><br />
-            <a href="{{ route('users') }}">back</a>
+            <a href="{{ route('staff') }}">back</a>
         </form>
     </div>
 </body>

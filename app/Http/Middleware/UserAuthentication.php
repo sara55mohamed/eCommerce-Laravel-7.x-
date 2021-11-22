@@ -25,8 +25,8 @@ class UserAuthentication
         $check = Auth::attempt(['email' => $request->get('email'), 'password' => $request->get('password')]);
 
         if ($check == true) {
-            return redirect()->route('users');
+            return redirect()->route('staff')->with('success', 'You have been login as admin.');
         }
-        return redirect()->route('admin')->with('error', 'Oppes! You have entered invalid credentials');
+        return redirect()->route('admin')->with('error', 'Not valid staff.');
     }
 }

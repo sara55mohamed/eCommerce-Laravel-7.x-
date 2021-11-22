@@ -25,9 +25,9 @@ class UserAuthorization
             if ($check->type == 'admin') {
                 return $next($request);
             }    
-            return redirect()->route('products');
+            return redirect()->route('products')->with('success', 'You have been login as worker.');
         }
         // dd('sara');
-        return redirect()->route('admin');
+        return redirect()->route('admin')->with('error', 'Not valid staff.');
     }
 }

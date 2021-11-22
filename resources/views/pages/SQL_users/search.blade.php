@@ -10,13 +10,13 @@
             <label>email:</label><br />
             <input type="text" name="email" value="">
             <input type="submit" value="Search"><br />
-            <a href="{{ route('users') }}">back</a>
+            <a href="{{ route('staff') }}">back</a>
         </form>
 
     </div>
     <div>
 
-        @if (!empty($users))
+        @if (!empty($staff))
             <div class="content1">
                 <center>
                     <table border='2' cellspacing='0' cellpadding='50' align='center'
@@ -30,10 +30,10 @@
                         {{-- IF Array -> @foreach ($search_users as $row) --}}
                         {{-- @dd($search_users) --}}
                         <tr role='row'>
-                            <td style='color:#40739e; font-size: 15px;'>{{ $users->name }}</td>
-                            <td style='color:#434444; font-size: 15px;'>{{ $users->password }}</td>
-                            <td style='color:#40739e; font-size: 15px;'>{{ $users->email }}</td>
-                            <td style='color:#40739e; font-size: 15px;'>{{ $users->type }}</td>
+                            <td style='color:#40739e; font-size: 15px;'>{{ $staff->name }}</td>
+                            <td style='color:#434444; font-size: 15px;'>{{ $staff->password }}</td>
+                            <td style='color:#40739e; font-size: 15px;'>{{ $staff->email }}</td>
+                            <td style='color:#40739e; font-size: 15px;'>{{ $staff->type }}</td>
                         </tr>
                         {{-- @endforeach --}}
                     </table>

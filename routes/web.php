@@ -12,53 +12,52 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// INTERFACE ROUTE
-Route::get('/', [App\Http\Controllers\homeUser::class, 'indexHome'])->name("home");
+                                // INTERFACE ROUTE
 
-Route::get('/category', [App\Http\Controllers\homeUser::class, 'indexCategory'])->name("category");
+Route::get('/home', [App\Http\Controllers\homeStaff::class, 'indexHome'])->name("home");
 
-Route::get('/shoping', [App\Http\Controllers\homeUser::class, 'indexShoping'])->name("shoping");
+Route::get('/category', [App\Http\Controllers\homeStaff::class, 'indexCategory'])->name("category");
 
-Route::get('/admin', [App\Http\Controllers\authUser::class, 'indexAdmin'])->name("admin");
+Route::get('/shoping', [App\Http\Controllers\homeStaff::class, 'indexShoping'])->name("shoping");
+
+Route::get('/admin', [App\Http\Controllers\authStaff::class, 'indexAdmin'])->name("admin");
 
 Route::group(['middleware' => 'UserAuthentication'], function () {
 
-    Route::post('/admin-login', [App\Http\Controllers\authUser::class, 'adminLogin'])->name("admin.login");
+    Route::post('/login', [App\Http\Controllers\authStaff::class, 'staffLogin'])->name("view.login");
+
+    Route::get('/logout', [App\Http\Controllers\authStaff::class, 'staffLogout'])->name("logout");
+
+                                    // PRODUCT ROUTES
 
     Route::get('/products', [App\Http\Controllers\homeProduct::class, 'indexProducts'])->name("products");
 
     Route::get('/view-products', [App\Http\Controllers\homeProduct::class, 'index'])->name("view.products");
-
-
-    Route::get('/logout', [App\Http\Controllers\authUser::class, 'userLogout'])->name("logout");
 });
 
 Route::group(['middleware' => 'UserAuthorization'], function () {
-
-    Route::get('/users', [App\Http\Controllers\homeUser::class, 'indexUsers'])->name("users");
-
-    Route::get('/view-users', [App\Http\Controllers\homeUser::class, 'index'])->name("view.users");
-
-    Route::get('/view-add', [App\Http\Controllers\homeUser::class, 'view'])->name("view.add");
-
-    Route::post('/insert', [App\Http\Controllers\homeUser::class, 'insert'])->name("insert");
-
-    Route::get('/view-search', [App\Http\Controllers\homeUser::class, 'viewSearch'])->name("view.search");
-
-    Route::post('/search', [App\Http\Controllers\homeUser::class, 'search'])->name("search");
-
-    Route::get('/view-delete', [App\Http\Controllers\homeUser::class, 'viewDelete'])->name("view.delete");
-
-    Route::post('/delete', [App\Http\Controllers\homeUser::class, 'delete'])->name("delete");
-
-    Route::get('/view-edit', [App\Http\Controllers\homeUser::class, 'viewEdit'])->name("view.edit");
-
-    Route::post('/edit', [App\Http\Controllers\homeUser::class, 'edit'])->name("edit");
     
-    // PRODUCT ROUTES
-    // Route::get('/products', [App\Http\Controllers\homeProduct::class, 'indexProducts'])->name("products");
+                                    // STAFF ROUTES
 
-    // Route::get('/view-products', [App\Http\Controllers\homeProduct::class, 'index'])->name("view.products");
+    Route::get('/staff', [App\Http\Controllers\homeStaff::class, 'indexStaff'])->name("staff");
+
+    Route::get('/view-staff', [App\Http\Controllers\homeStaff::class, 'index'])->name("view.staff");
+
+    Route::get('/view-add', [App\Http\Controllers\homeStaff::class, 'view'])->name("view.add");
+
+    Route::post('/insert', [App\Http\Controllers\homeStaff::class, 'insert'])->name("insert");
+
+    Route::get('/view-search', [App\Http\Controllers\homeStaff::class, 'viewSearch'])->name("view.search");
+
+    Route::post('/search', [App\Http\Controllers\homeStaff::class, 'search'])->name("search");
+
+    Route::get('/view-delete', [App\Http\Controllers\homeStaff::class, 'viewDelete'])->name("view.delete");
+
+    Route::post('/delete', [App\Http\Controllers\homeStaff::class, 'delete'])->name("delete");
+
+    Route::get('/view-edit', [App\Http\Controllers\homeStaff::class, 'viewEdit'])->name("view.edit");
+
+    Route::post('/edit', [App\Http\Controllers\homeStaff::class, 'edit'])->name("edit");
 });
 
 

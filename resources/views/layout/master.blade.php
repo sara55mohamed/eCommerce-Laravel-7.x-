@@ -1,26 +1,26 @@
-  <!DOCTYPE html>
-  <html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>@yield('title','Shop')</title>
-      <link rel="icon" href="assets/img/favicon.png" sizes="192x192" />
-      <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-  </head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>@yield('title','Shop')</title>
+        <link rel="icon" href="assets/img/favicon.png" sizes="192x192" />
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    </head>
 
-  <body>
+    <body>
 
-      {{-- start navication bar --}}
-      @include('layout.navbar')
-      {{-- end navication bar --}}
+        {{-- start navication bar --}}
+        @include('layout.navbar')
+        {{-- end navication bar --}}
 
-      @yield('content')
+        @yield('content')
 
-      {{-- start side bar --}}
-      @include('layout.sidebar')
-      {{-- end side bar --}}
-  </body>
+        {{-- start side bar --}}
+        @include('layout.sidebar')
+        {{-- end side bar --}}
+    </body>
 
-  </html>
+    </html>

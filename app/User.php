@@ -43,18 +43,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public static function getUsers()
+    public static function getStaff()
     {
         return  DB::table('users')
             ->select('*')
             ->get()
             ->toArray();
     }
-    public static function addUsers($data)
+    public static function addStaff($data)
     {
         return DB::table('users')->insert($data);
     }
-    public static function searchUser($email)
+    public static function searchStaff($email)
     {
         return  DB::table('users')
             ->select('*')
@@ -64,20 +64,20 @@ class User extends Authenticatable
         // dd($x);
         // return DB::table('users')->insert($data);
     }
-    public static function deleteUser($email)
+    public static function deleteStaff($email)
     {
         return  DB::table('users')
             ->where('email', 'like', '%' . $email . '%')
             ->delete();
     }
-    public static function editUser($data, $email)
+    public static function editStaff($data, $email)
     {
         return  DB::table('users')
             ->where('email', 'like', '%' . $email . '%')
             ->update($data);
     }
 
-    public static function checkUser($email, $password)
+    public static function checkStaff($email, $password)
     {
         return  DB::table('users')
             ->select('*')
