@@ -9,7 +9,7 @@
                 style='border:5px solid rgba(0,0,0,.5); background-color:lelaic;'>
                 <tr>
                     <td style='color:#03a9f4; font-size: 25px;'>Name</td>
-                    <td style='color:#03a9f4; font-size:25px;'>Password</td>
+                    {{-- <td style='color:#03a9f4; font-size:25px;'>Password</td> --}}
                     <td style='color:#03a9f4; font-size: 25px;'>Email</td>
                     <td style='color:#03a9f4; font-size:25px;'>Type</td>
                 </tr>
@@ -17,7 +17,7 @@
                 @foreach ($viewStaff as $data)
                     <tr role='row'>
                         <td style='color:#40739e; font-size: 15px;'>{{ $data->name }}</td>
-                        <td style='color:#434444; font-size: 15px;'>{{ $data->password }}</td>
+                        {{-- <td style='color:#434444; font-size: 15px;'>{{ $data->password }}</td> --}}
                         <td style='color:#40739e; font-size: 15px;'>{{ $data->email }}</td>
                         <td style='color:#40739e; font-size: 15px;'>{{ $data->type }}</td>
                     </tr>

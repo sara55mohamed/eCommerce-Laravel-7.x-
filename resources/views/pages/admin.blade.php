@@ -8,26 +8,14 @@
         <link rel="icon" href="assets/img/favicon.png" sizes="192x192" />
 
         <body>
-            
-            @if (session('success'))
-                <div class="error">{{ session('success') }}<div>
-                    @else
-                        <div class="error">{{ session('error') }}<div>
-            @endif
+            <div class="content">
 
-            {{-- <script>
-                var msg = '{{Session::get('alert')}}';
-                var exist = '{{Session::has('alert')}}';
-                var notexist = '{{Session::get('error')}}';
-                // var notexist = '{{Session::has('error')}}';
-
-                if(exist){
-                alert(msg);
-                }
-                else
-                alert(notexist);
-            }
-            </script> --}}
+                @if (session('success'))
+                    <div class="error">{{ session('success') }}<div>
+                        @else
+                            <div class="error">{{ session('error') }}<div>
+                @endif
+            </div>
             <div class="box">
 
                 <h2>Login</h2>

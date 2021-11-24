@@ -7,7 +7,7 @@ use App\User;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class UserAuthentication
+class StaffAuthentication
 {
     /**
      * Handle an incoming request.

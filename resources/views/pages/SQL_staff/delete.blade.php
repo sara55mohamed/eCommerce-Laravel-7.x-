@@ -3,19 +3,11 @@
 
 <body>
     <div class="content">
-        <script>
-            var msg = '{{Session::get('alert')}}';
-            // var error= ('error with email staff!');
-            var exist = '{{Session::has('alert')}}';
-            if(exist){
-            alert(msg);
-            }
-        </script>
-        {{-- @if(session()->has('message'))
-    <div class="alert alert-success">
-        {{ session()->get('message') }}
-    </div>
-@endif --}}
+        @if (session('success'))
+            <div class="success">{{ session('success') }}<div>
+                @else
+                    <div class="warning">{{ session('warning') }}<div>
+        @endif
         <form action="{{ route('delete') }}" method="POST">
             @csrf
             <label>current email:</label><br />

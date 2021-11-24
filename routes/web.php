@@ -22,7 +22,7 @@ Route::get('/shoping', [App\Http\Controllers\homeStaff::class, 'indexShoping'])-
 
 Route::get('/admin', [App\Http\Controllers\authStaff::class, 'indexAdmin'])->name("admin");
 
-Route::group(['middleware' => 'UserAuthentication'], function () {
+Route::group(['middleware' => 'StaffAuthentication'], function () {
 
     Route::post('/login', [App\Http\Controllers\authStaff::class, 'staffLogin'])->name("view.login");
 
@@ -35,7 +35,7 @@ Route::group(['middleware' => 'UserAuthentication'], function () {
     Route::get('/view-products', [App\Http\Controllers\homeProduct::class, 'index'])->name("view.products");
 });
 
-Route::group(['middleware' => 'UserAuthorization'], function () {
+Route::group(['middleware' => 'StaffAuthorization'], function () {
     
                                     // STAFF ROUTES
 

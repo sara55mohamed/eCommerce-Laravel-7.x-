@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use Closure;
 
-class UserAuthorization
+class StaffAuthorization
 {
     /**
      * Handle an incoming request.

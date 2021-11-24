@@ -2,8 +2,13 @@
 <link rel="icon" href="assets/img/favicon.png" sizes="192x192" />
 
 <body>
-
     <div class="content">
+
+        @if (session('success'))
+        <div class="success">{{ session('success') }}<div>
+            @else
+                <div class="warning">{{ session('warning') }}<div>
+    @endif
         <br>
         <form method="post" action="{{ route('search') }}">
             @csrf
@@ -23,7 +28,7 @@
                         style='border:5px solid rgba(0,0,0,.5); background-color:lelaic;'>
                         <tr>
                             <td style='color:#03a9f4; font-size: 25px;'>Name</td>
-                            <td style='color:#03a9f4; font-size:25px;'>Password</td>
+                            {{-- <td style='color:#03a9f4; font-size:25px;'>Password</td> --}}
                             <td style='color:#03a9f4; font-size: 25px;'>Email</td>
                             <td style='color:#03a9f4; font-size:25px;'>Type</td>
                         </tr>
@@ -31,7 +36,7 @@
                         {{-- @dd($search_users) --}}
                         <tr role='row'>
                             <td style='color:#40739e; font-size: 15px;'>{{ $staff->name }}</td>
-                            <td style='color:#434444; font-size: 15px;'>{{ $staff->password }}</td>
+                            {{-- <td style='color:#434444; font-size: 15px;'>{{ $staff->password }}</td> --}}
                             <td style='color:#40739e; font-size: 15px;'>{{ $staff->email }}</td>
                             <td style='color:#40739e; font-size: 15px;'>{{ $staff->type }}</td>
                         </tr>
