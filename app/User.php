@@ -11,7 +11,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = 'users';
+    protected $table = 'staff';
     /**
      * The attributes that are mass assignable.
      *
@@ -45,63 +45,64 @@ class User extends Authenticatable
 
     public static function getStaff()
     {
-        return  DB::table('users')
+        return  DB::table('staff')
             ->select('*')
             ->get()
             ->toArray();
     }
-    public static function addStaff($data)
-    {
-        return DB::table('users')->insert($data);
-    }
-    public static function searchStaff($email)
-    {
-        return  DB::table('users')
-            ->select('*')
-            ->where('email', 'like', '%' . $email . '%')
-            ->get()
-            ->first();
-        // dd($x);
-        // return DB::table('users')->insert($data);
-    }
-    public static function deleteStaff($email)
-    {
-        return  DB::table('users')
-            ->where('email', 'like', '%' . $email . '%')
-            ->delete();
-    }
-    public static function editStaff($data, $email)
-    {
-        return  DB::table('users')
-            ->where('email', 'like', '%' . $email . '%')
-            ->update($data);
-    }
-
-    public static function checkStaff($email, $password)
-    {
-        return  DB::table('users')
-            ->select('*')
-            ->where('email', 'like', '%' . $email . '%')
-            ->where('password', 'like', '%' . $password . '%')
-            ->get()
-            ->first();
-    }
-
-    public static function checkAuthouriz($id)
-    {
-        return  DB::table('users')
-            ->select('type')
-            ->where('id', '=', $id)
-            ->get()
-            ->first();
-    }
-    // public static function updateData($old_email,$data){
-    //     DB::table('users')
-    //       ->where('email',$old_email)
-    //       ->update($data);
-    //   }
-    //   public static function deleteData($id){
-    //     DB::table('users')->where('id', '=', $id)->delete();
-    //   }
-
 }
+// //     public static function addStaff($data)
+// //     {
+// //         return DB::table('users')->insert($data);
+// //     }
+// //     public static function searchStaff($email)
+// //     {
+// //         return  DB::table('users')
+// //             ->select('*')
+// //             ->where('email', 'like', '%' . $email . '%')
+// //             ->get()
+// //             ->first();
+// //         // dd($x);
+// //         // return DB::table('users')->insert($data);
+// //     }
+// //     public static function deleteStaff($email)
+// //     {
+// //         return  DB::table('users')
+// //             ->where('email', 'like', '%' . $email . '%')
+// //             ->delete();
+// //     }
+// //     public static function editStaff($data, $email)
+// //     {
+// //         return  DB::table('users')
+// //             ->where('email', 'like', '%' . $email . '%')
+// //             ->update($data);
+// //     }
+
+// //     public static function checkStaff($email, $password)
+// //     {
+// //         return  DB::table('users')
+// //             ->select('*')
+// //             ->where('email', 'like', '%' . $email . '%')
+// //             ->where('password', 'like', '%' . $password . '%')
+// //             ->get()
+// //             ->first();
+// //     }
+
+// //     public static function checkAuthouriz($id)
+// //     {
+// //         return  DB::table('users')
+// //             ->select('type')
+// //             ->where('id', '=', $id)
+// //             ->get()
+// //             ->first();
+// //     }
+//     // public static function updateData($old_email,$data){
+//     //     DB::table('users')
+//     //       ->where('email',$old_email)
+//     //       ->update($data);
+//     //   }
+//     //   public static function deleteData($id){
+//     //     DB::table('users')->where('id', '=', $id)->delete();
+//     //   }
+
+// }

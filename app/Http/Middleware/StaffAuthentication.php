@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 // use App\Providers\RouteServiceProvider;
 
-use App\User;
+use App\Staff;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,6 +27,6 @@ class StaffAuthentication
         if ($check == true) {
             return redirect()->route('staff')->with('success', 'You have been login as admin.');
         }
-        return redirect()->route('admin')->with('error', 'Not valid staff.');
+        return redirect()->route('login')->with('error', 'Not valid staff.');
     }
 }

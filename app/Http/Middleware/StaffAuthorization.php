@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\User;
+use App\Staff;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +20,7 @@ class StaffAuthorization
     public function handle($request, Closure $next)
     {
         if(Auth::id()){
-            $check = User::checkAuthouriz(Auth::id());
+            $check = Staff::checkAuthouriz(Auth::id());
     
             if ($check->type == 'admin') {
                 return $next($request);
@@ -28,6 +28,6 @@ class StaffAuthorization
             return redirect()->route('products')->with('success', 'You have been login as worker.');
         }
         // dd('sara');
-        return redirect()->route('admin')->with('error', 'Not valid staff.');
+        return redirect()->route('login')->with('error', 'Not valid staff.');
     }
 }

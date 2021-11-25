@@ -20,7 +20,7 @@ Route::get('/category', [App\Http\Controllers\homeStaff::class, 'indexCategory']
 
 Route::get('/shoping', [App\Http\Controllers\homeStaff::class, 'indexShoping'])->name("shoping");
 
-Route::get('/admin', [App\Http\Controllers\authStaff::class, 'indexAdmin'])->name("admin");
+Route::get('/login', [App\Http\Controllers\authStaff::class, 'indexLogin'])->name("login");
 
 Route::group(['middleware' => 'StaffAuthentication'], function () {
 

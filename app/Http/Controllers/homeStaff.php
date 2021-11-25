@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Staff;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 // use Illuminate\Support\Facades\Redirect;
@@ -44,7 +44,7 @@ class homeStaff extends Controller
     public function index()
     {
 
-        $users = User::getStaff();
+        $users = Staff::getStaff();
 
         return view('pages/SQL_staff.view', ['viewStaff' => $users]);
     }
@@ -61,7 +61,7 @@ class homeStaff extends Controller
         $password = $request->get('password'); // password
         $type = $request->get('type');
         $data = ["name" => $name, "email" => $email, "password" => Hash::make($password), "type" => $type];
-        $adding = User::addStaff($data);
+        $adding = Staff::addStaff($data);
         $request->session()->flash('success', 'Record Created Successfully!');
         $request->session()->flash('alert-class', 'alert-danger');
         return view('pages/SQL_staff.add', ['add_staff' => $adding]);
@@ -73,7 +73,7 @@ class homeStaff extends Controller
     }
     public function search(Request $request)
     {
-        $search = User::searchStaff($request->get('email'));
+        $search = Staff::searchStaff($request->get('email'));
         // return view('pages/SQL_staff.search', ['staff' => $search]);
         if ($search == true) {
             return view('pages/SQL_staff.search', ['staff' => $search])->with('success');
@@ -87,7 +87,7 @@ class homeStaff extends Controller
     }
     public function delete(Request $request)
     {
-        $delete = User::deleteStaff($request->get('email'));
+        $delete = Staff::deleteStaff($request->get('email'));
 
         Session::flash('alert-warning', 'warning');
         Session::flash('alert-success', 'success');
@@ -113,7 +113,7 @@ class homeStaff extends Controller
         $password = $request->get('password');
         $type = $request->get('type');
         $data = ["name" => $name, "email" => $email,"password" => Hash::make($password), "type" => $type];
-        $edit = User::editStaff($data, $email);
+        $edit = Staff::editStaff($data, $email);
         $request->session()->flash('success', 'Record Updated.');
         $request->session()->flash('alert-class', 'alert-danger');
         return view('pages/SQL_staff.edit', ['staff' => $edit]);

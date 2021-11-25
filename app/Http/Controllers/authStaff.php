@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Staff;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class authStaff extends Controller
 {
-    // ADMIN PAGE
-    public function indexAdmin()
+    // LOGIN PAGE
+    public function indexLogin()
     {
         if(empty(Auth::id()))
-                return view('pages.admin');
+                return view('pages.login');
 
         return redirect()->route('products');
 
@@ -25,6 +25,6 @@ class authStaff extends Controller
     public function staffLogout()
     {
         Auth::logout();
-        return redirect()->route('admin');
+        return redirect()->route('login');
     }
 }
