@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class Products extends Model
 {
     use Notifiable;
-
+     
     protected $table = 'product';
     /**
      * The attributes that are mass assignable.

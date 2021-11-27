@@ -32,7 +32,7 @@ class homeStaff extends Controller
         return view('pages.shoping');
     }
 
-    // USERS PAGE
+    // STAFF PAGE
     public function indexStaff()
     {
 
@@ -40,7 +40,7 @@ class homeStaff extends Controller
 
         return view('pages.staff');
     }
-    // VIEW USERS
+    // VIEW STAFF
     public function index()
     {
 
@@ -48,7 +48,7 @@ class homeStaff extends Controller
 
         return view('pages/SQL_staff.view', ['viewStaff' => $users]);
     }
-    // ADD USERS
+    // ADD STAFF
 
     public function view()
     {
@@ -66,7 +66,7 @@ class homeStaff extends Controller
         $request->session()->flash('alert-class', 'alert-danger');
         return view('pages/SQL_staff.add', ['add_staff' => $adding]);
     }
-    // SEARCH USERS
+    // SEARCH STAFF
     public function viewSearch()
     {
         return view('pages/SQL_staff.search');
@@ -80,7 +80,7 @@ class homeStaff extends Controller
         }
         return redirect()->route('view.search')->with('warning', 'Staff with this email not record in database...');
     }
-    // DELETE USERS
+    // DELETE STAFF
     public function viewDelete()
     {
         return view('pages/SQL_staff.delete');
@@ -100,7 +100,7 @@ class homeStaff extends Controller
         
         // return view('pages/SQL_staff.delete', ['staff' => $delete]);
     }
-    // EDIT USERS
+    // EDIT STAFF
     public function viewEdit()
     {
         return view('pages/SQL_staff.edit');

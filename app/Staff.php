@@ -3,6 +3,7 @@
 namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\SoftDeletes;
 // use Illuminate\Foundation\Auth\Staff as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 class Staff extends Model
 {
     use Notifiable;
+    use SoftDeletes;
 
     protected $table = 'staff';
     /**
@@ -22,7 +24,7 @@ class Staff extends Model
         'name' => 'required|string|max:255',
         'type' => 'required|string|max:255',
         'email' => 'required|string|email|max:255|unique:users',
-        'password' => 'required|string|min:8|confirmed',
+        'password' => 'required|string|min:8',
     ];
 
     /**
